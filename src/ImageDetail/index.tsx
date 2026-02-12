@@ -8,12 +8,12 @@ import {
   Animated,
   PanResponder,
   Modal,
-  SafeAreaView,
   PanResponderInstance,
   StatusBar,
   Easing,
   Platform,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import FastImage from 'react-native-fast-image';
 import type { Source, ResizeMode, ImageStyle } from 'react-native-fast-image';
 

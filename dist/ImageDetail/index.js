@@ -14,7 +14,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 import React from 'react';
-import { StyleSheet, View, TouchableOpacity, Text, Dimensions, Animated, PanResponder, Modal, SafeAreaView, StatusBar, Easing, Platform, } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Text, Dimensions, Animated, PanResponder, Modal, StatusBar, Easing, Platform, } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import FastImage from 'react-native-fast-image';
 var LONG_PRESS_TIME = 800;
 var DOUBLE_CLICK_INTERVAL = 250;

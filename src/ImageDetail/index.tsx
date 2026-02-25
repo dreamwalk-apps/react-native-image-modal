@@ -6,6 +6,7 @@ import {
   Text,
   Dimensions,
   Animated,
+  Image,
   PanResponder,
   Modal,
   PanResponderInstance,
@@ -13,9 +14,8 @@ import {
   Easing,
   Platform,
 } from 'react-native';
+import type { ImageResizeMode, ImageSourcePropType, ImageStyle } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import FastImage from 'react-native-fast-image';
-import type { Source, ResizeMode, ImageStyle } from 'react-native-fast-image';
 
 import { OnTap, OnMove } from '../types';
 
@@ -75,9 +75,9 @@ interface Props {
     width: number;
     height: number;
   };
-  source: Source | number;
-  thumbnailSource?: Source | number;
-  resizeMode?: ResizeMode;
+  source: ImageSourcePropType;
+  thumbnailSource?: ImageSourcePropType;
+  resizeMode?: ImageResizeMode;
   backgroundColor?: string;
   swipeToDismiss?: boolean;
   hideCloseButton?: boolean;
@@ -717,7 +717,7 @@ export default class ImageDetail extends React.Component<Props> {
           style={animateConf}
           renderToHardwareTextureAndroid={renderToHardwareTextureAndroid === false ? false : true}
         >
-          <FastImage
+          <Image
             resizeMode={resizeMode}
             style={[
               imageStyle,

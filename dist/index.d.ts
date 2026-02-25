@@ -1,6 +1,5 @@
 import React, { LegacyRef } from 'react';
-import type { ResizeMode } from 'react-native-fast-image';
-import type { ImageStyle, FastImageProps } from 'react-native-fast-image';
+import type { ImageProps, ImageResizeMode, ImageStyle } from 'react-native';
 import { OnTap, OnMove } from './types';
 import ImageDetail from './ImageDetail';
 interface State {
@@ -12,7 +11,7 @@ interface State {
         height: number;
     };
 }
-interface Props extends FastImageProps {
+interface Props extends ImageProps {
     isRTL?: boolean;
     renderToHardwareTextureAndroid?: boolean;
     isTranslucent?: boolean;
@@ -23,7 +22,7 @@ interface Props extends FastImageProps {
     modalRef?: LegacyRef<ImageDetail>;
     disabled?: boolean;
     modalImageStyle?: ImageStyle;
-    modalImageResizeMode?: ResizeMode;
+    modalImageResizeMode?: ImageResizeMode;
     onLongPressOriginImage?: () => void;
     renderHeader?: (close: () => void) => JSX.Element | Array<JSX.Element>;
     renderFooter?: (close: () => void) => JSX.Element | Array<JSX.Element>;
@@ -36,8 +35,8 @@ interface Props extends FastImageProps {
     responderRelease?: (vx?: number, scale?: number) => void;
     willClose?: () => void;
     onClose?: () => void;
-    source: FastImageProps['source'];
-    thumbnailSource?: FastImageProps['source'];
+    source: ImageProps['source'];
+    thumbnailSource?: ImageProps['source'];
 }
 export default class ImageModal extends React.Component<Props, State> {
     private _root;

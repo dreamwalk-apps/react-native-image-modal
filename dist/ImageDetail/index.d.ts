@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Source, ResizeMode, ImageStyle } from 'react-native-fast-image';
+import type { ImageResizeMode, ImageSourcePropType, ImageStyle } from 'react-native';
 import { OnTap, OnMove } from '../types';
 interface Props {
     renderToHardwareTextureAndroid?: boolean;
@@ -11,9 +11,9 @@ interface Props {
         width: number;
         height: number;
     };
-    source: Source | number;
-    thumbnailSource?: Source | number;
-    resizeMode?: ResizeMode;
+    source: ImageSourcePropType;
+    thumbnailSource?: ImageSourcePropType;
+    resizeMode?: ImageResizeMode;
     backgroundColor?: string;
     swipeToDismiss?: boolean;
     hideCloseButton?: boolean;

@@ -1,8 +1,6 @@
 import React, { LegacyRef } from 'react';
-import { Animated, View, TouchableOpacity, StatusBar, Platform, Dimensions } from 'react-native';
-import FastImage from 'react-native-fast-image';
-import type { ResizeMode } from 'react-native-fast-image';
-import type { ImageStyle, FastImageProps } from 'react-native-fast-image';
+import { Animated, Image, View, TouchableOpacity, StatusBar, Platform, Dimensions } from 'react-native';
+import type { ImageProps, ImageResizeMode, ImageStyle } from 'react-native';
 
 import { OnTap, OnMove } from './types';
 import ImageDetail from './ImageDetail';
@@ -16,7 +14,7 @@ interface State {
     height: number;
   };
 }
-interface Props extends FastImageProps {
+interface Props extends ImageProps {
   isRTL?: boolean;
   renderToHardwareTextureAndroid?: boolean;
   isTranslucent?: boolean;
@@ -27,7 +25,7 @@ interface Props extends FastImageProps {
   modalRef?: LegacyRef<ImageDetail>;
   disabled?: boolean;
   modalImageStyle?: ImageStyle;
-  modalImageResizeMode?: ResizeMode;
+  modalImageResizeMode?: ImageResizeMode;
   onLongPressOriginImage?: () => void;
   renderHeader?: (close: () => void) => JSX.Element | Array<JSX.Element>;
   renderFooter?: (close: () => void) => JSX.Element | Array<JSX.Element>;
@@ -40,8 +38,8 @@ interface Props extends FastImageProps {
   responderRelease?: (vx?: number, scale?: number) => void;
   willClose?: () => void;
   onClose?: () => void;
-  source: FastImageProps['source'];
-  thumbnailSource?: FastImageProps['source'];
+  source: ImageProps['source'];
+  thumbnailSource?: ImageProps['source'];
 }
 export default class ImageModal extends React.Component<Props, State> {
   private _root: View | null = null;
@@ -172,7 +170,7 @@ export default class ImageModal extends React.Component<Props, State> {
             onPress={this._open}
             onLongPress={onLongPressOriginImage}
           >
-            <FastImage {...this.props} source={this.props.thumbnailSource || this.props.source} />
+            <Image {...this.props} source={this.props.thumbnailSource || this.props.source} />
           </TouchableOpacity>
         </Animated.View>
         <ImageDetail
